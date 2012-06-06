@@ -8,15 +8,14 @@ import java.util.ArrayList;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 
+import org.codehaus.jackson.JsonGenerationException;
+import org.codehaus.jackson.JsonParseException;
+import org.codehaus.jackson.map.JsonMappingException;
+import org.codehaus.jackson.map.ObjectMapper;
 import org.xml.sax.InputSource;
 
 import antlr.collections.List;
 
-import com.fasterxml.jackson.core.JsonGenerationException;
-import com.fasterxml.jackson.core.JsonParseException;
-import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 
 import play.libs.WS;
 import play.mvc.Controller;
@@ -34,6 +33,12 @@ public class Application extends Controller {
 	private static String AUTH_TOKEN= "AUTH_TOKEN";
 	private static String TAG_CLOUD= "TAG_CLOUD";
 	private static int EXPIRY_SECS = 10*60;
+	private static WidgetOutput ERROR_WIDGET;
+	
+	static{
+		ERROR_WIDGET=new WidgetOutput();
+		ERROR_WIDGET.add(new DataItem("#Error",50));
+	}
     public static void index() {
         render();
     }
@@ -54,22 +59,23 @@ public class Application extends Controller {
 	    		cachedCloud = getTagCloudData(authToken);
     			jedis.set(TAG_CLOUD, cachedCloud);
     			jedis.expire(TAG_CLOUD, EXPIRY_SECS);
-	    		renderJSON(cachedCloud);
-
 	    	}
 	    	renderJSON(cachedCloud);
 	    } catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			renderJSON(ERROR_WIDGET);
 		} catch (JsonMappingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			renderJSON(ERROR_WIDGET);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (JAXBException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+			renderJSON(ERROR_WIDGET);
 		}finally{
 	    	pool.returnResource(jedis);
 	    }

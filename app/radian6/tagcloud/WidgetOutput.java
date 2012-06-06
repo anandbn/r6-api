@@ -1,5 +1,6 @@
 package radian6.tagcloud;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.xml.bind.annotation.XmlAccessType;
@@ -26,6 +27,12 @@ public class WidgetOutput {
 	
 	public WidgetOutput(){
 		super();
+	}
+	public boolean add(DataItem arg0) {
+		if(this.dataitems==null){
+			dataitems = new ArrayList<DataItem>();
+		}
+		return dataitems.add(arg0);
 	}
 	@Override
 	public String toString() {

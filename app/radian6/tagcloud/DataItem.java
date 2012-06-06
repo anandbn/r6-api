@@ -20,6 +20,11 @@ public class DataItem {
 	public DataItem(){
 		super();
 	}
+	public DataItem(String key, int value) {
+		this();
+		this.key = key;
+		this.value = value;
+	}
 	@Override
 	public String toString() {
 		return "DataItem [key=" + key + ", cloudSize=" + cloudSize + ", value="
