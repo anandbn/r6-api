@@ -120,44 +120,4 @@ public class Application extends Controller {
     	mapper.writeValue(byteOut,widgetOut);
     	return byteOut.toString();
     }
-
-    public static void main(String args[]) throws JsonParseException, JsonMappingException, IOException, JAXBException{
- 
-    	String xmlIn = "<widgetOutput><dataitems highFreq='0'><dataitem><isSphinxLimit>false</isSphinxLimit></dataitem><dataitem><CLOUDSize>1000</CLOUDSize>" +
-    			"</dataitem><dataitem><key><![CDATA['using']]></key><value>51</value></dataitem><dataitem><key><![CDATA['technology']]></key><value>48</value></dataitem>" +
-    			"<dataitem><key><![CDATA['buy']]></key><value>38</value></dataitem><dataitem><key><![CDATA['customer']]></key><value>53</value></dataitem>" +
-    			"<dataitem><key><![CDATA['twitter']]></key><value>68</value></dataitem><dataitem><key><![CDATA['software']]></key><value>58</value></dataitem>" +
-    			"<dataitem><key><![CDATA['time']]></key><value>59</value></dataitem><dataitem><key><![CDATA['thanks']]></key><value>70</value></dataitem>" +
-    			"<dataitem><key><![CDATA['tools']]></key><value>44</value></dataitem><dataitem><key><![CDATA['social']]></key><value>215</value></dataitem>" +
-    			"<dataitem><key><![CDATA['sales']]></key><value>38</value></dataitem><dataitem><key><![CDATA['facebook']]></key><value>68</value></dataitem>" +
-    			"<dataitem><key><![CDATA['industry']]></key><value>59</value></dataitem><dataitem><key><![CDATA['viral']]></key><value>51</value></dataitem>" +
-    			"<dataitem><key><![CDATA['platform']]></key><value>67</value></dataitem><dataitem><key><![CDATA['services']]></key><value>57</value></dataitem>" +
-    			"<dataitem><key><![CDATA['million']]></key><value>49</value></dataitem><dataitem><key><![CDATA['isn']]></key><value>50</value></dataitem>" +
-    			"<dataitem><key><![CDATA['white']]></key><value>53</value></dataitem><dataitem><key><![CDATA['companies']]></key><value>59</value></dataitem>" +
-    			"<dataitem><key><![CDATA['enterprise']]></key><value>49</value></dataitem><dataitem><key><![CDATA['london']]></key><value>51</value></dataitem>" +
-    			"<dataitem><key><![CDATA['announced']]></key><value>39</value></dataitem><dataitem><key><![CDATA['@radian6']]></key><value>243</value></dataitem>" +
-    			"<dataitem><key><![CDATA['company']]></key><value>75</value></dataitem><dataitem><key><![CDATA['salesforce']]></key><value>133</value></dataitem>" +
-    			"<dataitem><key><![CDATA['media']]></key><value>192</value></dataitem><dataitem><key><![CDATA['buddy']]></key><value>103</value></dataitem>" +
-    			"<dataitem><key><![CDATA['heroku']]></key><value>258</value></dataitem><dataitem><key><![CDATA['queen']]></key><value>48</value></dataitem>" +
-    			"<dataitem><key><![CDATA['fans']]></key><value>59</value></dataitem><dataitem><key><![CDATA['oracle']]></key><value>50</value></dataitem>" +
-    			"<dataitem><key><![CDATA['business']]></key><value>45</value></dataitem><dataitem><key><![CDATA['online']]></key><value>54</value></dataitem>" +
-    			"<dataitem><key><![CDATA['ceo']]></key><value>39</value></dataitem><dataitem><key><![CDATA['looking']]></key><value>37</value></dataitem>" +
-    			"<dataitem><key><![CDATA['brands']]></key><value>66</value></dataitem><dataitem><key><![CDATA['acquisition']]></key><value>52</value></dataitem>" +
-    			"<dataitem><key><![CDATA['crm']]></key><value>56</value></dataitem><dataitem><key><![CDATA['rain']]></key><value>47</value></dataitem><dataitem>" +
-    			"<key><![CDATA['look']]></key><value>37</value></dataitem><dataitem><key><![CDATA['app']]></key><value>39</value></dataitem>" +
-    			"<dataitem><key><![CDATA['radian6']]></key><value>279</value></dataitem><dataitem><key><![CDATA['marketing']]></key><value>84</value></dataitem>" +
-    			"<dataitem><key><![CDATA['news']]></key><value>52</value></dataitem><dataitem><key><![CDATA['customers']]></key><value>46</value></dataitem>" +
-    			"<dataitem><key><![CDATA['@heroku']]></key><value>63</value></dataitem><dataitem><key><![CDATA['great']]></key><value>50</value></dataitem>" +
-    			"<dataitem><key><![CDATA['red']]></key><value>48</value></dataitem><dataitem><key><![CDATA['cloud']]></key><value>74</value></dataitem>" +
-    			"<status>complete</status></dataitems></widgetOutput>";
-    	/*
-    	String xmlIn = "<auth><token>415cb01dbad3a986b9f84e0edac56d829e3f199c3214f13c15a12a968b843f7c</token><UserDetails><user><userId>72748</userId>" +
-    			"<clientId>6016</clientId><displayName><![CDATA[Anand Narasimhan]]></displayName><emailAddress>anand@heroku.com</emailAddress><timezone>GMT</timezone>" +
-    			"<packages></packages><userRoleId>2</userRoleId><createdDate>Mar 06, 2012 09:55 PM</createdDate><enabled>true</enabled><aihUsers><aihUser>" +
-    			"<userKey>42914f92e520d63d121174bda6d5cce1</userKey><registerDate>2012</registerDate><type>1</type></aihUser></aihUsers></user><avatar />" +
-    			"<Packages></Packages></UserDetails></auth>";
-    	*/
-    }
-
-
 }

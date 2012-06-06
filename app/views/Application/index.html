@@ -101,7 +101,7 @@ body{
 		var wordInput2 = []	;
 		$("#statusMsg").css("display","block");
 		$.get("/tagCloud",function(data){
-			var dataitems = data.dataitems;
+			/*var dataitems = data.dataitems;
 			for(var i=0;i<dataitems.length;i++){
 				if(dataitems[i].key !=null){
 					wordInput2.push({
@@ -110,8 +110,8 @@ body{
 									 }
 								);
 				}
-			}
-			layout.stop().words(wordInput2).start();
+			}*/
+			layout.stop().words(data.words).start();
 			$("#statusMsg").css("display","none");
 				
 			

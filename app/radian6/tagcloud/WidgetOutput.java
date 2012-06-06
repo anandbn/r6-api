@@ -45,7 +45,14 @@ public class WidgetOutput {
 		this.status = status;
 	}
 	public List<DataItem> getDataitems() {
-		return dataitems;
+		//NEED A MORE EFFICIENT WAY TO REMOVE "null" keys
+		List<DataItem> newItems = new ArrayList<DataItem>();
+		for(DataItem item:this.dataitems){
+			if(item.getKey()!=null){
+				newItems.add(item);
+			}
+		}
+		return newItems;
 	}
 	public void setDataitems(List<DataItem> dataitems) {
 		this.dataitems = dataitems;
