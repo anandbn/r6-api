@@ -15,28 +15,27 @@ body{
 #{/set}
 
 <div class="row">
-	<div id="vis" class="span4 well">
+	<div id="vis" class="well span6">
 		<div id="statusMsg" class="alert alert-info" style="display:none;">
   			Fetching Radian6 tag cloud data .....
 		</div>
-	
-	
 	</div>
 	<div class="well span4">
-		<form>
 			<a class="btn btn-large btn-primary" href="javascript:updateWords();">Update from Radian 6 </a>
-		</form>
 	</div>
 </div>
 <script type="text/javascript">
 	var fill = d3.scale.category20b();
 	
-	var w = 350,
-	    h = 350;
-	var wordArray =  ["padlock","lasso","coat","stiletto","duck","sunset","kennel"];
-	var wordInput = wordArray.map(function(d) {
-	        return {text: d, size: d.length + Math.random() * 90};
-	      });
+	var w = 600,
+	    h = 450;
+	var wordInput = [
+		{"text":"really small","size":30},
+		{"text":"small","size":50},
+		{"text":"Big","size":70},
+		{"text":"Supersize","size":90},
+		{"text":"Monstrous","size":110}
+	];
 	var max,
 	    scale = 1,
 	    complete = 0,
