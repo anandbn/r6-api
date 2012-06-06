@@ -1,4 +1,6 @@
 # Application dependencies
 
 require:
-    - play
+    - org.codehaus.jackson -> jackson-core-asl [1.9.1,1.9.2]
+    - org.codehaus.jackson -> jackson-mapper-asl [1.9.1,1.9.2]
+    - redis.clients -> jedis 2.0.0

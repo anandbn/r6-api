@@ -4,7 +4,7 @@
 
 # Home page
 GET     /                                          Application.index
-
+GET		/tagCloud								   Application.tagCloud
 # Ignore favicon requests
 GET        /favicon.ico                            404
 

@@ -15,11 +15,16 @@ body{
 #{/set}
 
 <div class="row">
-	<div id="vis" class="span4 well"></div>
+	<div id="vis" class="span4 well">
+		<div id="statusMsg" class="alert alert-info" style="display:none;">
+  			Fetching Radian6 tag cloud data .....
+		</div>
+	
+	
+	</div>
 	<div class="well span4">
 		<form>
-			<textarea class="input-xlarge" id="words" name="words" rows="3"></textarea><br/>
-			<a class="btn btn-large btn-primary" href="javascript:updateWords();">Update</a>
+			<a class="btn btn-large btn-primary" href="javascript:updateWords();">Update from Radian 6 </a>
 		</form>
 	</div>
 </div>
@@ -60,13 +65,11 @@ body{
 	
 	
 	function draw(data, bounds) {
-	  console.log('>>>>>>>draw called');
 	  scale = bounds ? Math.min(
 	      w / Math.abs(bounds[1].x - w / 2),
 	      w / Math.abs(bounds[0].x - w / 2),
 	      h / Math.abs(bounds[1].y - h / 2),
 	      h / Math.abs(bounds[0].y - h / 2)) / 2 : 1;
-	  console.log(data);
 	  var text = vis.selectAll("text")
 	      .data(data, function(d) { 
 	      	return d.text
@@ -91,17 +94,28 @@ body{
 	      .text(function(d) { return d.text; });
 	  
 	  text.exit().remove();
+	  
 	}
 	
 	function updateWords(){
-	
-		var wordArray1 = $("#words").val().split(",");
-		console.log(wordArray1);
-		var wordInput1 = wordArray1.map(function(d) {
-	        return {text: d, size: d.length + Math.random() * 90};
-	      });
-		console.log(wordInput1);
-		layout.stop().words(wordInput1).start();
+		var wordInput2 = []	;
+		$("#statusMsg").css("display","block");
+		$.get("/tagCloud",function(data){
+			var dataitems = data.dataitems;
+			for(var i=0;i<dataitems.length;i++){
+				if(dataitems[i].key !=null){
+					wordInput2.push({
+					  					"text":data.dataitems[i].key,
+									 	"size":dataitems[i].value
+									 }
+								);
+				}
+			}
+			layout.stop().words(wordInput2).start();
+			$("#statusMsg").css("display","none");
+				
+			
+		});
 	}
 	
 	
